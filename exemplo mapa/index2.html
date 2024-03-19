@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa do Mato Grosso com áreas</title>
+  </head>
+  <body>
+    <h2>Mapa do Mato Grosso com áreas</h2>
+    <img src="assets/image.png" usemap="#mapa" alt="Mapa do Mato Grosso" />
+
+    <map name="mapa">
+      <!-- Cuiabá -->
+      <area shape="rect" coords="200,100,250,150" href="#" alt="Cuiabá" />
+      <!-- Chapada dos Guimarães -->
+      <area
+        shape="circle"
+        coords="100,200,20"
+        href="#"
+        alt="Chapada dos Guimarães"
+      />
+      <!-- Rondonópolis -->
+      <area
+        shape="poly"
+        coords="300,300,350,350,300,400"
+        href="#"
+        alt="Rondonópolis"
+      />
+      <area
+        shape="poly"
+        coords="209,249,49,249,130,139"
+        href="https://developer.mozilla.org/docs/Web/JavaScript"
+        target="_blank"
+        alt="JavaScript"
+      />
+      <!-- Outra área -->
+      <!-- <area shape="..." coords="..." href="#" alt="..."> -->
+    </map>
+  </body>
+</html>
+
+<style>
+  area {
+    background-color: blue;
+    color: ;
+  }
+</style>

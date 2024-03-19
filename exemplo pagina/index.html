@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Simples</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  .login-container {
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 100px;
+  }
+  .login-container h2 {
+    text-align: center;
+  }
+  .login-container div {
+    margin-bottom: 10px;
+  }
+  .login-container label {
+    display: block;
+  }
+  .login-container input {
+    padding: 8px;
+    width: 93%;
+    margin-top: 5px;
+  }
+  .login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #42b983;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .login-container button:hover {
+    background-color: #36a374;
+  }
+</style>
+</head>
+<body>
+<div class="login-container">
+  <h2>Login</h2>
+  <form id="loginForm">
+    <div>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" required>
+    </div>
+    <div>
+      <label for="password">Senha:</label>
+      <input type="password" id="password" required>
+    </div>
+    <button type="submit">Entrar</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    console.log('E-mail:', email, 'Senha:', password);
+    window.location.href = 'home.html';
+    // Aqui você adicionaria o código para verificar as credenciais
+  });
+</script>
+</body>
+</html>

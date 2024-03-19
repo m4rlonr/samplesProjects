@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base target="_top" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Layers Control Tutorial - Leaflet</title>
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="docs/images/favicon.ico"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+      integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+      crossorigin=""
+    ></script>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      .leaflet-container {
+        height: 400px;
+        width: 600px;
+        max-width: 100%;
+        max-height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var cities = L.layerGroup();
+
+      var mUFSM = L.marker([-29.71949, -53.71435])
+        .bindPopup("Esta é a Universidade de Santa Maria")
+        .addTo(cities);
+      var mSM = L.marker([-29.6901, -53.80718])
+        .bindPopup("Esta é a cidade de Santa Maria-RS")
+        .addTo(cities);
+      var mRIA = L.marker([-29.71123, -53.68996])
+        .bindPopup("Este é o aeroport ode Santa Maria (RIA)")
+        .addTo(cities);
+      var mBOT = L.marker([-29.71883, -53.72904])
+        .bindPopup("Este é o Jardim Botânico de Santa Maria")
+        .addTo(cities);
+
+      var mbAttr =
+        'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
+      var mbUrl =
+        "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw";
+
+      var streets = L.tileLayer(mbUrl, {
+        id: "mapbox/streets-v11",
+        tileSize: 512,
+        zoomOffset: -1,
+        attribution: mbAttr,
+      });
+
+      var osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      });
+
+      var map = L.map("map", {
+        center: [-12.9894, -58.7645],
+        zoom: 12,
+        layers: [osm, cities],
+      });
+
+      var baseLayers = {
+        OpenStreetMap: osm,
+        Streets: streets,
+      };
+    </script>
+  </body>
+</html>
